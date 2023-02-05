@@ -5,10 +5,10 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./database/mysql/data/:/var/lib/mysql
+      - ./database/mariadb/data/:/var/lib/mariadb
     environment:
-      - MYSQL_DATABASE=quizer
-      - MYSQL_USER=quizer
-      - MYSQL_PASSWORD=secret
-      - MYSQL_ROOT_PASSWORD=RootPassword
+      - MARIADB_DATABASE=quizer
+      - MARIADB_USER=quizer
+      - MARIADB_PASSWORD=secret
+      - MARIADB_ROOT_PASSWORD=RootPassword
     restart: on-failure
