@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  maria-database:
+    image: mariadb:10.10
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/mysql/data/:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=quizer
+      - MYSQL_USER=quizer
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=RootPassword
+    restart: on-failure
