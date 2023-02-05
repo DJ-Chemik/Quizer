@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  maria-database:
+    image: mariadb:10.10
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/mariadb/data/:/var/lib/mariadb
+    environment:
+      - MARIADB_DATABASE=quizer
+      - MARIADB_USER=quizer
+      - MARIADB_PASSWORD=secret
+      - MARIADB_ROOT_PASSWORD=RootPassword
+    restart: on-failure
