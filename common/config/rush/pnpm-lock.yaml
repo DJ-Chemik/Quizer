@@ -38,6 +38,7 @@ importers:
       '@nestjs/platform-express': ^9.0.0
       '@nestjs/schematics': ^9.0.0
       '@nestjs/testing': ^9.0.0
+      '@prisma/client': 4.1.0
       '@types/express': ^4.17.13
       '@types/jest': 29.2.4
       '@types/node': 18.11.18
@@ -49,6 +50,7 @@ importers:
       eslint-plugin-prettier: ^4.0.0
       jest: 29.3.1
       prettier: ^2.3.2
+      prisma: 4.1.0
       reflect-metadata: ^0.1.13
       rxjs: ^7.2.0
       source-map-support: ^0.5.20
@@ -62,6 +64,7 @@ importers:
       '@nestjs/common': 9.2.1_6363e4e8645f76ca34905e3a7e635f02
       '@nestjs/core': 9.2.1_27960f42b212c00268241592d616b2a4
       '@nestjs/platform-express': 9.2.1_3a4507b80408e3f30ddd3985ad1e6709
+      '@prisma/client': 4.1.0_prisma@4.1.0
       reflect-metadata: 0.1.13
       rxjs: 7.8.0
     devDependencies:
@@ -79,6 +82,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_1378b02c5800deb8d1d7075877fd3b1c
       jest: 29.3.1_c94e0f8eadb71b347b2a0c987637d777
       prettier: 2.8.3
+      prisma: 4.1.0
       source-map-support: 0.5.21
       supertest: 6.3.3
       ts-jest: 29.0.3_jest@29.3.1+typescript@4.9.4
@@ -2879,6 +2883,29 @@ packages:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
     dev: false
+
+  /@prisma/client/4.1.0_prisma@4.1.0:
+    resolution: {integrity: sha512-MvfPGAd42vHTiCYxwS6N+2U3F+ukoJ48D2QRnX1zSPJHBkh1CBtshl75daKzvVfgQwSouzSQeugKDej5di+E/g==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8
+      prisma: 4.1.0
+    dev: false
+
+  /@prisma/engines-version/4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8:
+    resolution: {integrity: sha512-cRRJwpHFGFJZvtHbY3GZjMffNBEjjZk68ztn+S2hDgPCGB4H66IK26roK94GJxBodSehwRJ0wGyebC2GoIH1JQ==}
+    dev: false
+
+  /@prisma/engines/4.1.0:
+    resolution: {integrity: sha512-quqHXD3P83NBLVtRlts4SgKHmqgA8GMiyDTJ7af03Wg0gl6F5t65mBYvIuwmD+52vHm42JtIsp/fAO9YIV0JBA==}
+    requiresBuild: true
+    dev: true
 
   /@sideway/address/4.1.4:
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
@@ -9998,6 +10025,15 @@ packages:
       '@jest/schemas': 29.4.0
       ansi-styles: 5.2.0
       react-is: 18.2.0
+    dev: true
+
+  /prisma/4.1.0:
+    resolution: {integrity: sha512-iwqpAT6In1uvMSwQAM3PqmaBdhh2OaQ/2t+n3RjpW4vAKP3R7E1T34FZUU4zGOWtMWm5dt0sPThQkT/h87r6gw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.1.0
     dev: true
 
   /process-nextick-args/2.0.1:
