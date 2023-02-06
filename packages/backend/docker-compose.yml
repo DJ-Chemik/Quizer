@@ -12,3 +12,7 @@ services:
       - MARIADB_PASSWORD=secret
       - MARIADB_ROOT_PASSWORD=RootPassword
     restart: on-failure
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - 6379:6379
