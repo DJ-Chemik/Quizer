@@ -1,13 +1,21 @@
-import { CacheKey, CacheTTL, Controller, Get } from '@nestjs/common';
+import {
+  CacheInterceptor,
+  CacheKey,
+  CacheTTL,
+  Controller,
+  Get,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ExampleService } from './example.service';
 
 @Controller('/examples')
 export class ExampleController {
   constructor(private readonly exampleService: ExampleService) { }
 
-  @Get()
+  @UseInterceptors(CacheInterceptor)
   @CacheKey('example')
   @CacheTTL(10)
+  @Get()
   getExamples() {
     return this.exampleService.getExamples();
   }
