@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import QuizerRoot from '../src/QuizerRoot';
+import QuizerRoot from '../src/QuizerRoot/QuizerRoot';
 
 export default function Home() {
   return (

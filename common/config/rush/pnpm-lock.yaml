@@ -10,13 +10,14 @@ importers:
       '@types/node': ^18.11.18
       '@types/react': ^18.0.27
       '@types/react-dom': ^18.0.10
+      '@types/styled-components': 5.1.26
       babel-plugin-styled-components: ^2.0.7
       gatsby: ^5.4.2
       gatsby-plugin-pnpm: ^1.2.10
       gatsby-plugin-styled-components: ^6.4.0
       react: ^18.2.0
       react-dom: ^18.2.0
-      styled-components: ^5.3.6
+      styled-components: 5.3.6
       typescript: 4.9.5
     dependencies:
       babel-plugin-styled-components: 2.0.7_styled-components@5.3.6
@@ -27,9 +28,10 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       styled-components: 5.3.6_react-dom@18.2.0+react@18.2.0
     devDependencies:
-      '@types/node': 18.11.18
+      '@types/node': 18.13.0
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
+      '@types/styled-components': 5.1.26
       typescript: 4.9.5
 
   ../../packages/backend:
@@ -105,14 +107,19 @@ importers:
 
   ../../packages/frontend:
     specifiers:
+      '@types/styled-components': 5.1.26
       next: latest
       react: 18.2.0
       react-dom: 18.2.0
+      styled-components: 5.3.6
       typescript: 4.9.5
     dependencies:
       next: 13.1.6_react-dom@18.2.0+react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      styled-components: 5.3.6_react-dom@18.2.0+react@18.2.0
+    devDependencies:
+      '@types/styled-components': 5.1.26
       typescript: 4.9.5
 
 packages:
@@ -3354,6 +3361,13 @@ packages:
       '@types/node': 18.11.18
     dev: true
 
+  /@types/hoist-non-react-statics/3.3.1:
+    resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
+    dependencies:
+      '@types/react': 18.0.27
+      hoist-non-react-statics: 3.3.2
+    dev: true
+
   /@types/http-cache-semantics/4.0.1:
     resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==}
     dev: false
@@ -3427,6 +3441,10 @@ packages:
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+
+  /@types/node/18.13.0:
+    resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==}
+    dev: true
 
   /@types/node/8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
@@ -3510,6 +3528,14 @@ packages:
 
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
+    dev: true
+
+  /@types/styled-components/5.1.26:
+    resolution: {integrity: sha512-KuKJ9Z6xb93uJiIyxo/+ksS7yLjS1KzG6iv5i78dhVg/X3u5t1H7juRWqVmodIdz6wGVaIApo1u01kmFRdJHVw==}
+    dependencies:
+      '@types/hoist-non-react-statics': 3.3.1
+      '@types/react': 18.0.27
+      csstype: 3.1.1
     dev: true
 
   /@types/superagent/4.1.16:
@@ -7658,7 +7684,6 @@ packages:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
       react-is: 16.13.1
-    dev: false
 
   /hosted-git-info/3.0.8:
     resolution: {integrity: sha512-aXpmwoOhRBrw6X3j0h5RloK4x1OzsxMPyxqIHyNfSe2pypkVTZFpEiRoSipPEPlMrh0HW/XsjkJ5WgnCirpNUw==}
@@ -10524,7 +10549,6 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: false
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
@@ -11906,6 +11930,7 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
 
   /ua-parser-js/0.7.33:
     resolution: {integrity: sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==}

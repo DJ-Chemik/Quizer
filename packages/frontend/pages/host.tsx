@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import GameShowHostRoot from '../src/GameShowHostRoot';
+import GameShowHostRoot from '../src/GameShowHostRoot/GameShowHostRoot';
 
 export default function Home() {
   return (
