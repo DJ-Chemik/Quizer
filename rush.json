@@ -339,6 +339,10 @@
     {
       "packageName": "quizer-backend",
       "projectFolder": "packages/backend"
+    },
+    {
+      "packageName": "common",
+      "projectFolder": "packages/common"
     }
     // {
     //   /**
