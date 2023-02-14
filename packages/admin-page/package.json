@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.7",
-    "common": "workspace:*",
     "gatsby": "^5.4.2",
     "gatsby-plugin-pnpm": "^1.2.10",
     "gatsby-plugin-styled-components": "^6.4.0",
@@ -26,6 +25,9 @@
     "styled-components": "5.3.6"
   },
   "devDependencies": {
+    "@shared/components": "workspace:*",
+    "@shared/consts": "workspace:*",
+    "@shared/interfaces": "workspace:*",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
