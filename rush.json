@@ -333,12 +333,16 @@
    */
   "projects": [
     {
-      "packageName": "admin-page",
+      "packageName": "quizer-admin-page",
       "projectFolder": "packages/admin-page"
     },
     {
       "packageName": "quizer-backend",
       "projectFolder": "packages/backend"
+    },
+    {
+      "packageName": "quizer-frontend",
+      "projectFolder": "packages/frontend"
     },
     {
       "packageName": "common",
