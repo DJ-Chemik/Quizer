@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint --dir . --fix"
   },
   "dependencies": {
     "next": "latest",
@@ -18,6 +19,8 @@
     "@shared/consts": "workspace:*",
     "@shared/interfaces": "workspace:*",
     "@types/styled-components": "5.1.26",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
     "typescript": "4.9.5"
   }
 }
