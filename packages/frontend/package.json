@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --dir . --fix"
+    "lint": "eslint \"{src,pages,test}/**/*.{ts,tsx}\" --fix --max-warnings=0",
+    "lint:next": "next lint --dir . --fix --max-warnings=0"
   },
   "dependencies": {
     "next": "latest",
