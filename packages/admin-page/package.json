@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\" --fix --max-warnings=0",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -32,6 +33,10 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/styled-components": "5.1.26",
+    "eslint": "8.36.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-loader": "4.0.2",
+    "gatsby-plugin-eslint": "4.0.4",
     "typescript": "4.9.5"
   }
 }
