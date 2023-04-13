@@ -1,19 +1,8 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    tsconfigRootDir: __dirname,
-    sourceType: 'module',
+  globals: {
+    __PATH_PREFIX__: true,
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-  ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
+  extends: `react-app`,
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     // Possible problems - GENERAL ESLINT CONFIG
@@ -119,4 +108,4 @@ module.exports = {
     'template-curly-spacing': 'warn',
     'wrap-regex': 'warn',
   },
-};
+}

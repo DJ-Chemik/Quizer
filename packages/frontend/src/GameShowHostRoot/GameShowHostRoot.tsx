@@ -8,7 +8,7 @@ const GameShowHostRoot = () => {
         Game Show Host Root
       </main>
     </GameShowHostRootWrapper>
-  )
-}
+  );
+};
 
 export default GameShowHostRoot;
