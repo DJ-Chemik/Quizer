@@ -1,0 +1,71 @@
+name: Node.js ESlint
+
+on:
+  push:
+    branches: [ develop, master, slave ]
+  pull_request:
+    branches: [ develop, master, slave ]
+
+jobs:
+  lintFrontend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install rush
+        run: node common/scripts/install-run-rush.js install
+
+      - name: Lint frontend
+        working-directory: ./packages/frontend
+        run: npm run lint
+
+  lintBackend:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [18.x]
+
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Use Node.js ${{ matrix.node-version }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.node-version }}
+
+        - name: Install rush
+          run: node common/scripts/install-run-rush.js install
+
+        - name: Lint backend
+          working-directory: ./packages/backend
+          run: npm run lint
+
+  lintAdmin:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [18.x]
+
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Use Node.js ${{ matrix.node-version }}
+        - uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.node-version }}
+
+        - name: Install rush
+          run: node common/scripts/install-run-rush.js install
+
+        - name: Lint admin-page
+          working-directory: ./packages/admin-page
+          run: npm run lint
