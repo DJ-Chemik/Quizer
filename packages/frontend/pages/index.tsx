@@ -11,5 +11,5 @@ export default function Home() {
       </Head>
       <QuizerRoot />
     </div>
-  )
+  );
 }

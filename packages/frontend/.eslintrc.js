@@ -7,14 +7,11 @@ module.exports = {
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
   ],
   root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'next.config.js'],
   rules: {
     // Possible problems - GENERAL ESLINT CONFIG
     'array-callback-return': 'error',
@@ -37,7 +34,7 @@ module.exports = {
     'eqeqeq': 'error',
     'max-depth': ['warn', 4],
     'max-lines': ['warn', {
-      "max": 999,
+      "max": 999, 
       "skipBlankLines": true
     }],
     'max-params': ['error', 4],
