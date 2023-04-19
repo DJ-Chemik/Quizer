@@ -23,7 +23,8 @@
     "gatsby-plugin-styled-components": "^6.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "5.3.6"
+    "styled-components": "5.3.6",
+    "superagent": "~8.0.9"
   },
   "devDependencies": {
     "@shared/components": "workspace:*",
@@ -33,6 +34,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/styled-components": "5.1.26",
+    "@types/superagent": "~4.1.16",
     "eslint": "8.36.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-loader": "4.0.2",
