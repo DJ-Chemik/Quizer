@@ -11,6 +11,42 @@ datasource db {
 }
 
 model Example {
-  id               String   @id @default(uuid())
-  name             String   @unique
+  id   String @id @default(uuid())
+  name String @unique
+}
+
+model User {
+  id                String     @id @default(uuid())
+  name              String     @unique
+  creationDate      DateTime   @default(now())
+  updateDate        DateTime   @updatedAt
+  addedCategories   Category[]
+  addedQuestions    Question[] @relation(name: "userAddedQuestions")
+  approvedQuestions Question[] @relation(name: "userApprovedQuestions")
+}
+
+model Category {
+  id           String     @id @default(uuid())
+  name         String     @unique
+  creationDate DateTime   @default(now())
+  updateDate   DateTime   @updatedAt
+  questions    Question[]
+  creator      User       @relation(fields: [creatorId], references: [id])
+  creatorId    String
+}
+
+model Question {
+  id               String     @id @default(uuid())
+  name             String
+  creationDate     DateTime   @default(now())
+  updateDate       DateTime   @updatedAt
+  content          String
+  goodAnswer       String
+  wrongAnswerOne   String
+  wrongAnswerTwo   String
+  wrongAnswerThree String
+  categories       Category[]
+  creator          User       @relation(fields: [creatorId], references: [id], name: "userAddedQuestions")
+  creatorId        String
+  approvers        User[]     @relation(name: "userApprovedQuestions")
 }
