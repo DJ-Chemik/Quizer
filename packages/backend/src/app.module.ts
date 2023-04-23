@@ -4,11 +4,10 @@ import type { RedisClientOptions } from 'redis';
 import { redisStore } from 'cache-manager-redis-store';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ExampleModule } from './Example/example.module';
+import { QuestionModule } from './Question/question.module';
 
 @Module({
   imports: [
-    ExampleModule,
     ConfigModule.forRoot({
       envFilePath: process.env.NODE_ENV === 'production' ? '.env' : '.env.local',
     }),
@@ -18,6 +17,7 @@ import { ExampleModule } from './Example/example.module';
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
     }),
+    QuestionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
