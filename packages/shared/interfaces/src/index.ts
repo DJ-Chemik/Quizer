@@ -1,4 +1,3 @@
-export interface Example {
-  id: string;
-  name: string;
-}
+export * from './Models';
+export * from './Inputs';
+
