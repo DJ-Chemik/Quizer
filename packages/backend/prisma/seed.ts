@@ -1,26 +1,35 @@
-import { PrismaClient } from '@prisma/client'
-import { examples } from './seeds/examples';
+import { PrismaClient } from '@prisma/client';
+import { questions } from './seeds/questions';
+import { users } from './seeds/users';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-const seedExamples = async () => {
-  await prisma.example.deleteMany();
-  await prisma.example.createMany({
-    data: examples,
+const seedUsers = async () => {
+  await prisma.user.createMany({
+    data: users,
   });
 };
 
+const seedQuestions = async () => {
+  await prisma.question.deleteMany();
+  await prisma.question.createMany({
+    data: questions,
+  });
+};
 
 async function main() {
-  await seedExamples();
+  await seedUsers();
+  await seedQuestions();
 }
+
+const CODE = 1;
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   })
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(CODE);
+  });
