@@ -3,9 +3,9 @@ import { ActionIcons, CategoryDetails, CategoryName, CategoryTileContainer, Edit
 
 interface CategoryTileProps {
   name: string;
-  createdAt: Date;
-  changedAt: Date;
-  creator: string;
+  createdAt: string;
+  changedAt: string;
+  creatorName: string;
 }
 
 const CategoryTile = (props: CategoryTileProps) => {
@@ -20,7 +20,7 @@ const CategoryTile = (props: CategoryTileProps) => {
       <CategoryDetails>
         <div>Utworzono: {new Date(props.createdAt).toLocaleDateString()}</div>
         <div>Zmodyfikowano: {new Date(props.changedAt).toLocaleDateString()}</div>
-        <div>Twórca: {props.creator}</div>
+        <div>Twórca: {props.creatorName}</div>
       </CategoryDetails>
     );
   };

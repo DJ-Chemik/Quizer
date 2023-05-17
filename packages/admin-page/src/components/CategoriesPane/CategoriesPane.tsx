@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import superagent from 'superagent';
 import { CategoriesList } from './CategoriesPane.styled';
 import CategoryTile from './CategoryTile/CategoryTile';
-import { Category } from '@shared/interfaces';
+import { CategoryOutput as Category } from '@shared/interfaces';
 
 const CategoriesPane = () => {
   const [categories, setCategories] = useState<Category[]>();
@@ -27,23 +27,23 @@ const CategoriesPane = () => {
   }, []);
 
   if (!categories) {
-    return <div>Categories haven't fetched yet!</div>;
+    return <div>Kategorie nie zostały jeszcze pobrane</div>;
   }
 
   if (!categories.length) {
-    return <div>No categories are available</div>;
+    return <div>Brak kategorii do wyświetlenia</div>;
   }
 
   return (
     <div>
-      <div>Categories</div>
+      <div>Kategorie</div>
       <CategoriesList>
         {categories.map((category) => (
           <CategoryTile
             name={category.name}
             createdAt={category.creationDate}
             changedAt={category.updateDate}
-            creator={category.creator.name}
+            creatorName={category.creator.name}
           />
         ))}
       </CategoriesList>
