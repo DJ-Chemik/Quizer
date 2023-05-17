@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import superagent from 'superagent';
 import { CategoriesList } from './CategoriesPane.styled';
 import CategoryTile from './CategoryTile/CategoryTile';
-import { CategoryOutput as Category } from '@shared/interfaces';
+import { CategoryOutput as Category, CategoryUpdateInput } from '@shared/interfaces';
 
 const CategoriesPane = () => {
   const [categories, setCategories] = useState<Category[]>();
@@ -19,6 +19,25 @@ const CategoriesPane = () => {
 
     if (responseResult) {
       setCategories(responseResult);
+    }
+  };
+
+  const updateCategory = async (input: CategoryUpdateInput) => {
+    let obtainedCategory: Category | undefined = undefined;
+    try {
+      const response = await superagent
+        .post(`${process.env.API_URL}/categories/${input.id}`)
+        .send({
+          'input': input,
+        });
+      obtainedCategory = response.body;
+    } catch (e: unknown) {
+      console.error('Updating category failed!', e);
+    }
+
+    if (obtainedCategory && categories) {
+      const newCategories = categories.filter(category => category.id !== obtainedCategory?.id);
+      setCategories([...newCategories, obtainedCategory]);
     }
   };
 
@@ -40,10 +59,12 @@ const CategoriesPane = () => {
       <CategoriesList>
         {categories.map((category) => (
           <CategoryTile
+            id={category.id}
             name={category.name}
             createdAt={category.creationDate}
             changedAt={category.updateDate}
             creatorName={category.creator.name}
+            updateCategory={updateCategory}
           />
         ))}
       </CategoriesList>

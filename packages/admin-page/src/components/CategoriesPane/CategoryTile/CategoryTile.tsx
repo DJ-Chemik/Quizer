@@ -1,19 +1,50 @@
 import React, { useState } from 'react';
 import { ActionIcons, CategoryDetails, CategoryName, CategoryTileContainer, EditIcon, ExpandIcon } from './CategoryTile.styled';
+import { CategoryUpdateInput } from '@shared/interfaces';
 
 interface CategoryTileProps {
+  id: string;
   name: string;
   createdAt: string;
   changedAt: string;
   creatorName: string;
+  updateCategory: (input: CategoryUpdateInput) => void;
 }
 
 const CategoryTile = (props: CategoryTileProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isInEditMode, setIsInEditMode] = useState(false);
+  const [input, setInput] = useState<CategoryUpdateInput>();
+
+  const handleClickCancel = () => {
+    setIsInEditMode(false);
+    setInput(undefined);
+  };
+
+  const handleClickSave = () => {
+    setIsInEditMode(false);
+    if (input) {
+      props.updateCategory(input);
+      setInput(undefined);
+    }
+    setIsExpanded(false);
+  };
 
   const handleClickExpand = () => {
     setIsExpanded((previous) => !previous);
   };
+
+  const handleClickEdit = () => {
+    setIsExpanded(true);
+    setIsInEditMode(true);
+  };
+
+  const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInput({
+      id: props.id,
+      name: event.target.value,
+    });
+  }
 
   const renderCategoryDetails = () => {
     return (
@@ -28,14 +59,25 @@ const CategoryTile = (props: CategoryTileProps) => {
   return (
     <CategoryTileContainer isExpanded={isExpanded}>
       <div>
-        <CategoryName>{props.name}</CategoryName>
+        <CategoryName>
+          {isInEditMode ? (
+            <input defaultValue={props.name} onChange={handleChangeName} />
+          ) : props.name}
+        </CategoryName>
         {isExpanded ? renderCategoryDetails() : null}
       </div>
-      <ActionIcons>
-        <EditIcon>Edit</EditIcon>
-        <ExpandIcon onClick={handleClickExpand}>Expand</ExpandIcon>
-      </ActionIcons>
-    </CategoryTileContainer>
+      {isInEditMode ? (
+        <ActionIcons>
+          <EditIcon onClick={handleClickSave}>Zapisz</EditIcon>
+          <ExpandIcon onClick={handleClickCancel}>Anuluj</ExpandIcon>
+        </ActionIcons >
+      ) : (
+        <ActionIcons>
+          <EditIcon onClick={handleClickEdit}>Edit</EditIcon>
+          <ExpandIcon onClick={handleClickExpand}>Expand</ExpandIcon>
+        </ActionIcons >
+      )}
+    </CategoryTileContainer >
   );
 };
 

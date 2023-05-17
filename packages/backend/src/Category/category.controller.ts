@@ -29,8 +29,8 @@ export class CategoryController {
   }
 
   @Post(':id')
-  updateCategory(@Param('id') id: string, @Body() input: CategoryUpdateInput) {
-    return this.categoryService.updateCategory(id, input);
+  updateCategory(@Param('id') id: string, @Body() body: { input: CategoryUpdateInput }) {
+    return this.categoryService.updateCategory(id, body.input);
   }
 
   @Delete(':id')

@@ -33,6 +33,9 @@ export class CategoryService {
       data: {
         name: input.name,
       },
+      include: {
+        creator: true,
+      },
     });
   }
 
