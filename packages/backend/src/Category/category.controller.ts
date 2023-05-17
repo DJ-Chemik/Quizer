@@ -1,14 +1,10 @@
 import {
   Body,
-  CacheInterceptor,
-  CacheKey,
-  CacheTTL,
   Controller,
   Delete,
   Get,
   Param,
   Post,
-  UseInterceptors,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CategoryInput, CategoryUpdateInput } from '@shared/interfaces';
@@ -17,7 +13,6 @@ import { CategoryInput, CategoryUpdateInput } from '@shared/interfaces';
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) { }
 
-  @UseInterceptors(CacheInterceptor)
   @Get()
   getCategories() {
     return this.categoryService.getCategories();

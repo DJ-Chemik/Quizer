@@ -7,18 +7,22 @@ export class CategoryService {
   constructor(private prisma: PrismaService) { }
 
   async getCategories() {
-    return await this.prisma.category.findMany();
+    return await this.prisma.category.findMany({
+      include: {
+        creator: true,
+      },
+    });
   }
 
   async getCategory(id: string) {
-    return await this.prisma.category.findFirst({ where: { id }});
+    return await this.prisma.category.findFirst({ where: { id } });
   }
 
   async createCategory(input: CategoryInput) {
     return await this.prisma.category.create({
       data: {
         name: input.name,
-        creator: { connect: { id: input.creatorId }},
+        creator: { connect: { id: input.creatorId } },
       },
     });
   }
@@ -33,6 +37,6 @@ export class CategoryService {
   }
 
   async deleteCategory(id: string) {
-    return await this.prisma.category.delete({ where: { id }});
+    return await this.prisma.category.delete({ where: { id } });
   }
 }

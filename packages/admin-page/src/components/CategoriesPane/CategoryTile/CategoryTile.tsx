@@ -18,8 +18,8 @@ const CategoryTile = (props: CategoryTileProps) => {
   const renderCategoryDetails = () => {
     return (
       <CategoryDetails>
-        <div>Utworzono: {props.createdAt.toLocaleDateString()}</div>
-        <div>Zmodyfikowano: {props.changedAt.toLocaleDateString()}</div>
+        <div>Utworzono: {new Date(props.createdAt).toLocaleDateString()}</div>
+        <div>Zmodyfikowano: {new Date(props.changedAt).toLocaleDateString()}</div>
         <div>Twórca: {props.creator}</div>
       </CategoryDetails>
     );
