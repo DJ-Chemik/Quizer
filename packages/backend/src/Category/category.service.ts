@@ -24,6 +24,9 @@ export class CategoryService {
         name: input.name,
         creator: { connect: { id: input.creatorId } },
       },
+      include: {
+        creator: true,
+      },
     });
   }
 

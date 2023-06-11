@@ -11,6 +11,7 @@ export const CategoryTileContainer = styled.div<CategoryTileContainerProps>`
   height: ${({ isExpanded }) => (isExpanded ? '5rem' : '2rem')};
   width: 20rem;
   padding: 0.5rem;
+  padding-top: ${({ isExpanded }) => (isExpanded ? '0' : '0.5rem')};
   margin: 0.5rem;
   border: 1px solid black;
 `;

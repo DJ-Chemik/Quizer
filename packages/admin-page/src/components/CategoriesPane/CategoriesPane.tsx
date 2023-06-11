@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import superagent from 'superagent';
 import { CategoriesList } from './CategoriesPane.styled';
 import CategoryTile from './CategoryTile/CategoryTile';
-import { CategoryOutput as Category, CategoryUpdateInput } from '@shared/interfaces';
+import { CategoryOutput as Category, CategoryInput, CategoryUpdateInput } from '@shared/interfaces';
+import NewCategoryAdder from './NewCategoryAdder/NewCategoryAdder';
 
 const CategoriesPane = () => {
   const [categories, setCategories] = useState<Category[]>();
@@ -36,8 +37,30 @@ const CategoriesPane = () => {
     }
 
     if (obtainedCategory && categories) {
-      const newCategories = categories.filter(category => category.id !== obtainedCategory?.id);
+      const newCategories = categories.filter((category) => category.id !== obtainedCategory?.id);
       setCategories([...newCategories, obtainedCategory]);
+    }
+  };
+
+  const createCategory = async (input: CategoryInput) => {
+    let obtainedCategory: Category | undefined = undefined;
+    try {
+      const response = await superagent
+        .post(`${process.env.API_URL}/categories`)
+        .send({
+          'input': input,
+        });
+      obtainedCategory = response.body;
+      // eslint-disable-next-line no-console
+      console.log(obtainedCategory);
+    } catch (e: unknown) {
+      console.error('Creating category failed!', e);
+    }
+
+    // eslint-disable-next-line no-console
+    console.log(obtainedCategory);
+    if (obtainedCategory && categories) {
+      setCategories([...categories, obtainedCategory]);
     }
   };
 
@@ -67,6 +90,7 @@ const CategoriesPane = () => {
             updateCategory={updateCategory}
           />
         ))}
+        <NewCategoryAdder createCategory={createCategory} />
       </CategoriesList>
     </div>
   );

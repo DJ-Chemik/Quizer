@@ -24,8 +24,8 @@ export class CategoryController {
   }
 
   @Post()
-  createQuestion(@Body() input: CategoryInput) {
-    return this.categoryService.createCategory(input);
+  createCategory(@Body() body: { input: CategoryInput }) {
+    return this.categoryService.createCategory(body.input);
   }
 
   @Post(':id')

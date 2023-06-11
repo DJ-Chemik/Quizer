@@ -44,7 +44,7 @@ const CategoryTile = (props: CategoryTileProps) => {
       id: props.id,
       name: event.target.value,
     });
-  }
+  };
 
   const renderCategoryDetails = () => {
     return (
@@ -73,8 +73,8 @@ const CategoryTile = (props: CategoryTileProps) => {
         </ActionIcons >
       ) : (
         <ActionIcons>
-          <EditIcon onClick={handleClickEdit}>Edit</EditIcon>
-          <ExpandIcon onClick={handleClickExpand}>Expand</ExpandIcon>
+          <EditIcon onClick={handleClickEdit}>Edytuj</EditIcon>
+          <ExpandIcon onClick={handleClickExpand}>Rozwiń</ExpandIcon>
         </ActionIcons >
       )}
     </CategoryTileContainer >
