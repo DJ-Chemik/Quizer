@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   ActionIcons, CategoryDetails,
   CategoryName,
-  EditIcon, ExpandIcon,
+  ActionButton,
 } from '../CategoryTile/CategoryTile.styled';
 import { CategoryInput } from '@shared/interfaces';
 import { NewCategoryAdderContainer, PlusSquareButton, PlusSquareWrapper } from './NewCategoryAdder.styled';
@@ -65,8 +65,8 @@ const NewCategoryAdder = (props: NewCategoryAdderProps) => {
       </div>
       {isInEditMode ? (
         <ActionIcons>
-          <EditIcon onClick={handleClickSave}>Zapisz</EditIcon>
-          <ExpandIcon onClick={handleClickCancel}>Anuluj</ExpandIcon>
+          <ActionButton onClick={handleClickSave}>Zapisz</ActionButton>
+          <ActionButton onClick={handleClickCancel}>Anuluj</ActionButton>
         </ActionIcons >
       ) : (
         <PlusSquareWrapper>

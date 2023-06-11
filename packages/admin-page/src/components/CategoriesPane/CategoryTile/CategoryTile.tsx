@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActionIcons, CategoryDetails, CategoryName, CategoryTileContainer, EditIcon, ExpandIcon } from './CategoryTile.styled';
+import { ActionIcons, CategoryDetails, CategoryName, CategoryTileContainer, DeleteIconWrapper, ActionButton } from './CategoryTile.styled';
 import { CategoryUpdateInput } from '@shared/interfaces';
 
 interface CategoryTileProps {
@@ -9,6 +9,7 @@ interface CategoryTileProps {
   changedAt: string;
   creatorName: string;
   updateCategory: (input: CategoryUpdateInput) => void;
+  deleteCategory: (id: string) => void;
 }
 
 const CategoryTile = (props: CategoryTileProps) => {
@@ -37,6 +38,10 @@ const CategoryTile = (props: CategoryTileProps) => {
   const handleClickEdit = () => {
     setIsExpanded(true);
     setIsInEditMode(true);
+  };
+
+  const handleClickDelete = () => {
+    props.deleteCategory(props.id);
   };
 
   const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,14 +73,21 @@ const CategoryTile = (props: CategoryTileProps) => {
       </div>
       {isInEditMode ? (
         <ActionIcons>
-          <EditIcon onClick={handleClickSave}>Zapisz</EditIcon>
-          <ExpandIcon onClick={handleClickCancel}>Anuluj</ExpandIcon>
+          <ActionButton onClick={handleClickSave}>Zapisz</ActionButton>
+          <ActionButton onClick={handleClickCancel}>Anuluj</ActionButton>
         </ActionIcons >
       ) : (
-        <ActionIcons>
-          <EditIcon onClick={handleClickEdit}>Edytuj</EditIcon>
-          <ExpandIcon onClick={handleClickExpand}>Rozwiń</ExpandIcon>
-        </ActionIcons >
+        <>
+          <ActionIcons>
+            <ActionButton onClick={handleClickEdit}>Edytuj</ActionButton>
+            <ActionButton onClick={handleClickExpand}>Rozwiń</ActionButton>
+          </ActionIcons >
+          {isExpanded && (
+            <DeleteIconWrapper>
+              <ActionButton onClick={handleClickDelete}>Usuń</ActionButton>
+            </DeleteIconWrapper>
+          )}
+        </>
       )}
     </CategoryTileContainer >
   );

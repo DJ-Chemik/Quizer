@@ -30,15 +30,14 @@ export const ActionIcons = styled.div`
   right: 0;
 `;
 
-export const EditIcon = styled.div`
-  height: 1rem;
-  padding: 0.25rem;
-  margin: 0.25rem;
-  border: 1px solid black;
-  cursor: pointer;
+export const DeleteIconWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `;
 
-export const ExpandIcon = styled.div`
+export const ActionButton = styled.div`
   height: 1rem;
   padding: 0.25rem;
   margin: 0.25rem;

@@ -23,6 +23,16 @@ const CategoriesPane = () => {
     }
   };
 
+  const deleteCategory = async (id: string) => {
+    try {
+      await superagent
+        .delete(`${process.env.API_URL}/categories/${id}`);
+    } catch (e: unknown) {
+      console.error('Updating category failed!', e);
+    }
+    fetchCategories();
+  };
+
   const updateCategory = async (input: CategoryUpdateInput) => {
     let obtainedCategory: Category | undefined = undefined;
     try {
@@ -88,6 +98,7 @@ const CategoriesPane = () => {
             changedAt={category.updateDate}
             creatorName={category.creator.name}
             updateCategory={updateCategory}
+            deleteCategory={deleteCategory}
           />
         ))}
         <NewCategoryAdder createCategory={createCategory} />
