@@ -1,0 +1,7 @@
+{
+  "editor.tabSize": 2,
+  "files.associations": { "*.json": "jsonc" },
+  "cSpell.language": "en,pl",
+  "cSpell.words": [
+  ]
+}
