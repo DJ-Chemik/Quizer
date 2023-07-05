@@ -229,7 +229,7 @@
      * The default branch name. This tells "rush change" which remote branch to compare against.
      * The default value is "main"
      */
-    // "defaultBranch": "main",
+    "defaultBranch": "develop",
 
     /**
      * The default remote. This tells "rush change" which remote to compare against if the remote URL is
@@ -334,27 +334,33 @@
   "projects": [
     {
       "packageName": "quizer-admin-page",
-      "projectFolder": "packages/admin-page"
+      "projectFolder": "packages/admin-page",
+      "versionPolicyName": "mainProject"
     },
     {
       "packageName": "quizer-backend",
-      "projectFolder": "packages/backend"
+      "projectFolder": "packages/backend",
+      "versionPolicyName": "mainProject"
     },
     {
       "packageName": "quizer-frontend",
-      "projectFolder": "packages/frontend"
+      "projectFolder": "packages/frontend",
+      "versionPolicyName": "mainProject"
     },
     {
       "packageName": "@shared/components",
-      "projectFolder": "packages/shared/components"
+      "projectFolder": "packages/shared/components",
+      "versionPolicyName": "mainProject"
     },
     {
       "packageName": "@shared/consts",
-      "projectFolder": "packages/shared/consts"
+      "projectFolder": "packages/shared/consts",
+      "versionPolicyName": "mainProject"
     },
     {
       "packageName": "@shared/interfaces",
-      "projectFolder": "packages/shared/interfaces"
+      "projectFolder": "packages/shared/interfaces",
+      "versionPolicyName": "mainProject"
     }
     // {
     //   /**
