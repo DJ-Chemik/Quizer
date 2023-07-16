@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "bump:version:prerelease": "rush version --bump --override-bump prerelease",
+    "bump:version:patch": "rush version --bump --override-bump patch",
+    "bump:version:minor": "rush version --bump --override-bump minor",
+    "bump:version:major": "rush version --bump --override-bump major"
+  }
+}
