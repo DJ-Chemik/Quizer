@@ -11,14 +11,20 @@ export enum UserID {
 export const users: SeedUser[] = [
   {
     id: UserID.TestUser,
-    name: 'TestUser',
+    username: 'TestUser',
+    email: 'testuser@quizer.pl',
+    password: '123456',
   },
   {
     id: UserID.Szymon,
-    name: 'Szymon Szczepański',
+    username: 'Szymon Szczepański',
+    email: 'szymon@quizer.pl',
+    password: '123456',
   },
   {
     id: UserID.Patryk,
-    name: 'Patryk Jakubowski',
+    username: 'Patryk Jakubowski',
+    email: 'patryk@quizer.pl',
+    password: '123456',
   },
 ];
