@@ -3,3 +3,7 @@ export const jwtConstants = {
   // eslint-disable-next-line no-magic-numbers
   expiresIn: `${1 * 60}s`,
 };
+
+export const bcryptConstants = {
+  numberOfRounds: 10,
+}
