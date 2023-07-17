@@ -8,12 +8,12 @@ module.exports = {
     // Possible problems - GENERAL ESLINT CONFIG
     'array-callback-return': 'error',
     'no-await-in-loop': 'error',
-    'no-constant-binary-expression': 'error',
+    'no-constant-binary-expression': 'off', // Some strange problems
     'no-duplicate-imports': 'error',
     'no-self-compare': 'error',
     'no-template-curly-in-string': 'error',
     'no-unused-vars': 'off', // Overridden by typescript rule
-    'no-use-before-define': 'warn',
+    'no-use-before-define': 'off', // 'React' was used before defined
     // Suggestions - GENERAL ESLINT CONFIG
     'arrow-body-style': 'off',
     'camelcase': 'error',
