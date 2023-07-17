@@ -7,6 +7,8 @@ import { bcryptConstants } from 'src/auth/auth.constants';
 
 export type User = Pick<UserEntity, 'id' | 'username' | 'email' | 'password'>;
 
+const HTTP_CODE_500 = 500;
+
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) { }
@@ -27,7 +29,7 @@ export class UsersService {
           email: input.email,
           password: bcrypt.hashSync(input.password, bcryptConstants.numberOfRounds),
         },
-      })
+      });
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { password, ...userInfo } = result;
       return userInfo;
@@ -37,7 +39,7 @@ export class UsersService {
       } else {
         console.error('Unknown error while creating user');
       }
-      throw new HttpException('User can not be created!', 500);
+      throw new HttpException('User can not be created!', HTTP_CODE_500);
     }
   }
 }

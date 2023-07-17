@@ -6,4 +6,4 @@ export const jwtConstants = {
 
 export const bcryptConstants = {
   numberOfRounds: 10,
-}
+};

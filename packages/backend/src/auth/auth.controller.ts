@@ -14,14 +14,14 @@ export class AuthController {
 
   @Post('register')
   async register(@Body() createUserInput: CreateUserInput) {
-    return this.userService.register(createUserInput);
+    return await this.userService.register(createUserInput);
   }
 
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() req) {
-    return this.authService.login(req.user);
+    return await this.authService.login(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
