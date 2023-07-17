@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { User, UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
+import { jwtConstants } from './auth.constants';
 
 export interface LoginJWTPayload {
   username: string;
@@ -28,7 +29,7 @@ export class AuthService {
   }
 
   // eslint-disable-next-line require-await
-  async login(user: User) {
+  private async prepareTokens(user: User) {
     const payload: LoginJWTPayload = {
       username: user.username,
       sub: {
@@ -36,9 +37,17 @@ export class AuthService {
       },
     };
     return {
-      // eslint-disable-next-line camelcase
-      access_token: this.jwtService.sign(payload),
+      accessToken: this.jwtService.sign(payload),
+      refreshToken: this.jwtService.sign(payload, { expiresIn: jwtConstants.refreshTokenExpiresIn }),
     };
+  }
+
+  async login(user: User) {
+    return await this.prepareTokens(user);
+  }
+
+  async refreshToken(user: User) {
+    return await this.prepareTokens(user);
   }
 
 }
