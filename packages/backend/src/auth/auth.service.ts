@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UsersService } from 'src/users/users.service';
+import { User, UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -18,10 +18,15 @@ export class AuthService {
     return null;
   }
 
-  async login(user: any) {
-    const payload = { username: user.username,
-      sub: user.userId };
+  async login(user: User) {
+    const payload = {
+      username: user.username,
+      sub: {
+        id: user.id,
+      },
+    };
     return {
+      // eslint-disable-next-line camelcase
       access_token: this.jwtService.sign(payload),
     };
   }
