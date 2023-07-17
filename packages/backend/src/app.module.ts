@@ -5,6 +5,7 @@ import { redisStore } from 'cache-manager-redis-store';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QuestionModule } from './Question/question.module';
+import { CategoryModule } from './Category/category.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { QuestionModule } from './Question/question.module';
       port: process.env.DB_PORT,
     }),
     QuestionModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
